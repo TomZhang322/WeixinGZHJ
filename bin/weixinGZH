@@ -1,0 +1,61 @@
+#!/bin/bash
+weixinGZH=weixinGZH-1.0-SNAPSHOT.jar
+weixinGZH_path=/usr/local/weixinGZH
+
+start() {
+   pid=`ps -ef | grep -i $weixinGZH | grep -v "grep" | awk '{print $2}'`
+   if [ x$pid != x ];then
+      echo "weixinGZH is running pid: "$pid
+   else
+        cd $weixinGZH_path
+        nohup java -jar -Xms1024m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m $weixinGZH  > nohup.out 2>&1 &
+   fi
+}
+
+stop() {
+   pid=`ps -ef | grep -i $weixinGZH | grep -v "grep" | awk '{print $2}'`
+   if [ x"$pid" != x ];then
+      cd $weixinGZH_path
+      kill -9 $pid
+      rm -rf nohup.out
+   else
+      echo "weixinGZH is stopped"
+   fi
+}
+
+status() {
+   pid=`ps -ef | grep -i $weixinGZH | grep -v "grep" | awk '{print $2}'`
+   if [ x"$pid" != x ];then
+      echo "weixinGZH is running pid: "$pid
+   else
+      echo "weixinGZH is stopped"
+   fi
+}
+
+
+show_log(){
+  cd $weixinGZH_path
+  tail -f nohup.out
+}
+
+case "$1" in
+  start)
+    start
+  ;;
+  stop)
+    stop
+  ;;
+  status)
+    status
+  ;;
+  restart)
+    stop
+    start
+  ;;
+  log)
+    show_log
+  ;;
+  *)
+    echo 'Usage:%s{start|stop|status|log|restart}'
+  ;;
+esac

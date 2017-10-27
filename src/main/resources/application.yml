@@ -1,0 +1,28 @@
+#Spring boot endpoints settings
+endpoints:
+  health:
+    sensitive: false
+
+#Spring boot management settings
+management:
+  security:
+    enabled: false
+
+server:
+  port: 80
+
+#Spring boot thymeleaf settings
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    cache: false
+
+#Logging settings
+logging:
+
+  level: INFO
+  file: ./weixinGZH/logs/weixinGZH/weixinGZH.log
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n"
