@@ -139,7 +139,8 @@ public class CoreServiceImpl implements CoreService {
 
                         case 13: {
                             //测试网址回复
-                            respContent = "<a href=\"http://www.baidu.com\">百度主页</a>";
+//                            respContent = "<a href=\"http://www.baidu.com\">百度主页</a>";
+                            respContent = "<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://18777q5t37.51mypc.cn/vote.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect\">用户信息</a>";
                             textMessage.setContent(respContent);
                             // 将文本消息对象转换成xml字符串
                             respMessage = MessageUtil.textMessageToXml(textMessage);
