@@ -1,0 +1,72 @@
+appID:	wx6af04124a8253649
+
+AppSecret:	61711d6dcc5088e0fcdecd4269d99e8f
+
+http://1553431610.applinzi.com/coreServlet
+-------------------------------------------------------------------------------
+微信公众平台接口测试帐号申请：
+	https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
+	微信号： gh_70b60c62e142
+
+	测试号信息
+	appID： wx83dad0407e617c02
+	appsecret： e2c222228707f8146b180c8335992bb1
+
+	接口配置信息
+	URL：http://1553431610.applinzi.com/coreServlet
+	Token：weixinZP
+
+---------------------------------------------------------------------------------
+腾讯云服务器主机：
+https://console.cloud.tencent.com/cvm/index?backfrom=cvmdetail
+ 119.29.110.51(公)
+ 172.16.0.14(内)
+
+---------------------------------------------------------------------------------
+
+新浪云地址：
+	http://sae.sina.com.cn/?m=vermng&a=newjava&app_id=1553431610
+参考：
+	http://www.cnblogs.com/txw1958/p/wechat-tutorial.html
+
+自定义菜单：
+	https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1472017492_58YV5
+	https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141013
+
+java版微信公众号开发之自定义菜单的创建:
+	http://blog.csdn.net/qq_16071145/article/details/51366749
+java版实时获取access_token:
+	http://blog.csdn.net/qq_16071145/article/details/51366582
+	http://www.cnblogs.com/zengda/p/4472106.html
+
+----------------------------------------------------------------------------
+微信公众号用户管理：
+	网页授权获取用户基本信息
+	http://www.cnblogs.com/liuhongfeng/p/5099149.html#undefined
+	http://www.cnblogs.com/cooldamon/p/7216886.html
+	http://www.jianshu.com/p/3dbf77bfb9dd
+
+测试回调url:
+	https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http%3A%2F%2F1553431610.applinzi.com%2FoauthServlet&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+
+springboot微信公众号：
+	http://blog.csdn.net/h295928126/article/details/53674498
+	https://www.2cto.com/kf/201701/583038.html
+
+Spring Boot 添加JSP支持：
+	http://www.cnblogs.com/shijiaoyun/p/5841867.html
+Spring Boot开发Web项目，使用Thymeleaf作为模板引擎 ：
+	http://blog.csdn.net/u012702547/article/details/53784992
+	采用 application.yml文件:
+		http://www.cnblogs.com/chq011/p/6964211.html
+
+网页授权获取用户信息步骤：
+	http://blog.csdn.net/jeikerxiao/article/details/68064754
+	http://blog.csdn.net/frankcheng5143/article/details/50005047
+	https://www.2cto.com/kf/201701/583038.html
+
+------------------------------------------------------------------------花生壳内网映射
+https://b.oray.com/forward/
+
+URL-http://18777q5t37.51mypc.cn
+Token-weixinZP
