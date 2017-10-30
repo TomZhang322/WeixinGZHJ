@@ -2,6 +2,7 @@ package com.thread;
 
 import com.adcc.utility.log.Log;
 import com.model.accesstoken.AccessToken;
+import com.util.Constant;
 import com.util.WeixinUtil;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -15,17 +16,12 @@ import org.springframework.stereotype.Component;
 public class AccessTokenThread {
 
     // 第三方用户唯一凭证
-    public static String appid = "wx83dad0407e617c02";
-
-    // 第三方用户唯一凭证密钥
-    public static String appsecret = "e2c222228707f8146b180c8335992bb1";
-    // 第三方用户唯一凭证
     public static AccessToken accessToken = null;
 
     @Scheduled(fixedDelay = 2*3600*1000)
     //7200秒执行一次
     public void gettoken(){
-        accessToken= WeixinUtil.getAccessToken(appid,appsecret);
+        accessToken= WeixinUtil.getAccessToken(Constant.appId,Constant.appSecret);
         if(null!=accessToken){
             Log.info("获取成功，accessToken:"+accessToken.getAccess_token());
         }else {

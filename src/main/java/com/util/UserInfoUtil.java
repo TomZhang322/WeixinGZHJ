@@ -26,18 +26,18 @@ public class UserInfoUtil {
         return String.format(User_Message, access_token, openid);
     }
 
-    public static void main(String[] args) {
-        String  REDIRECT_URI = "http://119.29.110.51:80/url";
-        /**
-         * 当scope=snsapi_userinfo的时候，弹出询问授权页面，用户同意，才可进一步获取用户基本信息
-         * 当scope=snsapi_base的时候,不会出现询问页面，但只能获取用户openid(用户的唯一标识)
-         */
-        String SCOPE = "snsapi_userinfo";
-        //appId
-        String appId = "wx83dad0407e617c02";
-
-        String getCodeUrl = getCode(appId, REDIRECT_URI, SCOPE);
-        System.out.println("getCodeUrl:"+getCodeUrl);
-        // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://119.29.110.51:80/url&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
-    }
+//    public static void main(String[] args) {
+//        String  REDIRECT_URI = "http://119.29.110.51:80/url";
+//        /**
+//         * 当scope=snsapi_userinfo的时候，弹出询问授权页面，用户同意，才可进一步获取用户基本信息
+//         * 当scope=snsapi_base的时候,不会出现询问页面，但只能获取用户openid(用户的唯一标识)
+//         */
+//        String SCOPE = "snsapi_userinfo";
+//        //appId
+//        String appId = "wx83dad0407e617c02";
+//
+//        String getCodeUrl = getCode(appId, REDIRECT_URI, SCOPE);
+//        System.out.println("getCodeUrl:"+getCodeUrl);
+//        // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://119.29.110.51:80/url&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+//    }
 }

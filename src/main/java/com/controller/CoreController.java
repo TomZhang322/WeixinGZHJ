@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("")
@@ -36,8 +35,4 @@ public class CoreController {
         return respMessage;
     }
 
-    @RequestMapping(value = "/redirect", method = RequestMethod.GET)
-    public String weixinRedirect(HttpServletRequest request, HttpServletResponse response) {
-        return "redirect:https://open.weixin.qq.com/connect/oauth2/authorize?appid=你的appid&redirect_uri=你的服务器处理地址?response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect";
-    }
 }

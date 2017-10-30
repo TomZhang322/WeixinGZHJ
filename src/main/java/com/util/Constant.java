@@ -9,8 +9,10 @@ public class Constant {
 
     public final static String appSecret = "e2c222228707f8146b180c8335992bb1";
 
-    public final static String REDIRECT_URI = "http://119.29.110.51:80";
+//    public final static String REDIRECT_URI = "http://119.29.110.51:80";
+    public final static String REDIRECT_URI = "http://18777q5t37.51mypc.cn";
 
+    // 与接口配置信息中的Token要一致
     public final static String token = "weixinZP";
 
     public final static String SCOPE_USERINFO = "snsapi_userinfo";
