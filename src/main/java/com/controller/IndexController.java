@@ -30,7 +30,7 @@ public class IndexController {
             String WebAccessToken = "";
             String openId  = "";
             String nickName,sex,openid = "";
-            String REDIRECT_URI = "http://18777q5t37.51mypc.cn/vote.do";
+            String REDIRECT_URI = "http://weixinzp.ngrok.xiaomiqiu.cn/vote.do";
             String SCOPE = "snsapi_userinfo";
 
             String getCodeUrl = UserInfoUtil.getCode(APPID, REDIRECT_URI, SCOPE);
