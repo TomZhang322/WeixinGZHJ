@@ -1,3 +1,24 @@
+#The mybatis settings
+mybatis:
+  configLocations: classpath:mybatis/mybatis-config.xml
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  typeAliasesPackage: com.model.dbuser
+
+#Spring boot settings
+spring:
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.241.221:1521:orcl
+    username: sgs
+    password: sgs
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    content-type: text/html
+    cache: false
+
 #Spring boot endpoints settings
 endpoints:
   health:
@@ -11,18 +32,7 @@ management:
 server:
   port: 80
 
-#Spring boot thymeleaf settings
-spring:
-  thymeleaf:
-    mode: HTML5
-    encoding: utf-8
-    content-type: text/html
-    cache: false
-
 #Logging settings
 logging:
-
-  level: INFO
-  file: ./weixinGZH/logs/weixinGZH/weixinGZH.log
-  pattern:
-    console: "%d{yyyy-MMM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n"
+  level: DEBUF
+  file: ./weixinGZH/logs/weixinGZH.log

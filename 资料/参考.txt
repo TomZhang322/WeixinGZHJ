@@ -70,3 +70,10 @@ https://b.oray.com/forward/
 
 URL-http://18777q5t37.51mypc.cn
 Token-weixinZP
+------------------------------------------------------------------------关于ngrok及小米球ngrok
+http://ngrok.ciqiuwl.cn/
+打开小米球ngrok,执行指令：ngrok -config=ngrok.cfg -subdomain weixinzp 80
+配置地址：weixinzp.ngrok.xiaomiqiu.cn
+
+搭建自己的ngrok服务 ：
+	https://yq.aliyun.com/articles/11852#

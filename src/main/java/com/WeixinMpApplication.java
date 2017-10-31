@@ -1,5 +1,6 @@
 package com;
 
+import com.adcc.utility.log.Log;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -10,5 +11,6 @@ public class WeixinMpApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WeixinMpApplication.class, args);
+        Log.info("WeixinMpApplication started");
     }
 }
