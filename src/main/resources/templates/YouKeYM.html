@@ -1,11 +1,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>游客界面</title>
-    <!--<link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet" />-->
-    <!--<link th:href="@{bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />-->
 </head>
 <body>
-    <a>游客</a>
+    <p th:text="'openId:' + ${openId}" />
+    <p th:text="'nickName:' + ${nickName}" />
+    <p th:text="'sex:' + ${sex}" />
+    <p th:text="'WebAccessToken:' + ${WebAccessToken}" />
 </body>
 </html>

@@ -10,17 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by ZP on 2017/10/27.
  */
 @Controller
 public class IndexController {
 
-    String openid = "";
-
     @RequestMapping("/vote.do")
     public ModelAndView listVote(@RequestParam(name="code",required=false)String code,
                                  @RequestParam(name="state")String state) {
+
+        String WebAccessToken = "";
+        String openId  = "";
+        String nickName = "";
+        String sex = "";
 
         System.out.println("-----------------------------收到请求，请求数据为："+code+"-----------------------"+state);
 
@@ -30,9 +36,7 @@ public class IndexController {
             String APPID = Constant.appId;
             String SECRET = Constant.appSecret;
             String CODE = code;
-            String WebAccessToken = "";
-            String openId  = "";
-            String nickName,sex = "";
+
             String REDIRECT_URI = "http://weixinzp.ngrok.xiaomiqiu.cn/vote.do";
             String SCOPE = "snsapi_userinfo";
 
@@ -71,11 +75,11 @@ public class IndexController {
                             sex = userMessageJsonObject.getString("sex");
                             sex = (sex.equals("1")) ? "男":"女";
                             //用户唯一标识
-                            openid = userMessageJsonObject.getString("openid");
+                            openId = userMessageJsonObject.getString("openid");
 
                             System.out.println("用户昵称------------------------"+nickName);
                             System.out.println("用户性别------------------------"+sex);
-                            System.out.println("用户的唯一标识-------------------"+openid);
+                            System.out.println("用户的唯一标识-------------------"+openId);
                         } catch (JSONException e) {
                             System.out.println("获取userName失败");
                         }
@@ -87,16 +91,28 @@ public class IndexController {
             }
         }
 
+        Map result = new HashMap();
+        result.put("openId", openId);
+        result.put("nickName", nickName);
+        result.put("sex", sex);
+        result.put("WebAccessToken", WebAccessToken);
+
         //此处业务代码省略 ^_^
 //        return new ModelAndView("mypages/index", model);
-        if (openid.equals(Constant.WEXIN_OPENID_ZP)) {
-            return new ModelAndView("AdminYM");
-        } else if (openid.equals(Constant.WEXIN_OPENID_WM)) {
-            return new ModelAndView("YouKeYM");
+        if (openId.equals(Constant.WEXIN_OPENID_ZP)) {
+            return new ModelAndView("AdminYM", result);
+        } else if (openId.equals(Constant.WEXIN_OPENID_WM)) {
+            return new ModelAndView("YouKeYM", result);
         } else {
             return new ModelAndView("index");
         }
 //        return new ModelAndView("index");
 
     }
+
+    @RequestMapping("/register.do")
+    public ModelAndView listVote() {
+        return new ModelAndView("register");
+    }
+
 }
