@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
+
+    String openid = "";
+
     @RequestMapping("/vote.do")
     public ModelAndView listVote(@RequestParam(name="code",required=false)String code,
                                  @RequestParam(name="state")String state) {
@@ -29,7 +32,7 @@ public class IndexController {
             String CODE = code;
             String WebAccessToken = "";
             String openId  = "";
-            String nickName,sex,openid = "";
+            String nickName,sex = "";
             String REDIRECT_URI = "http://weixinzp.ngrok.xiaomiqiu.cn/vote.do";
             String SCOPE = "snsapi_userinfo";
 
@@ -86,7 +89,14 @@ public class IndexController {
 
         //此处业务代码省略 ^_^
 //        return new ModelAndView("mypages/index", model);
-        return new ModelAndView("index");
+        if (openid.equals(Constant.WEXIN_OPENID_ZP)) {
+            return new ModelAndView("AdminYM");
+        } else if (openid.equals(Constant.WEXIN_OPENID_WM)) {
+            return new ModelAndView("YouKeYM");
+        } else {
+            return new ModelAndView("index");
+        }
+//        return new ModelAndView("index");
 
     }
 }

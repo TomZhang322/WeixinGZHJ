@@ -20,4 +20,8 @@ public class Constant {
 
     public final static String SCOPE_USERBASE = "snsapi_base";
 
+    public final static String WEXIN_OPENID_ZP = "o4dGP08LoMqT9Wj9i3l_mbE6ZBxM";
+
+    public final static String WEXIN_OPENID_WM = "o4dGP01BeHfSUqAzA8XibMHtPMzM";
+
 }
