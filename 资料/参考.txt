@@ -77,3 +77,22 @@ http://ngrok.ciqiuwl.cn/
 
 搭建自己的ngrok服务 ：
 	https://yq.aliyun.com/articles/11852#
+SpringBoot接口服务处理Whitelabel Error Page
+	http://blog.csdn.net/loongshawn/article/details/50915979
+thymeleaf使用详解：
+	http://m.blog.csdn.net/pdw2009/article/details/78149046
+
+---------------------------------------------------------------------------------微信第三方SDK
+http://www.cnblogs.com/codejackanapes/p/5496026.html
+
+微信Java SDK开发文档：
+	https://github.com/chanjarster/weixin-java-tools/wiki
+系列博客参考：
+	https://home.cnblogs.com/u/codejackanapes/
+微信公众平台消息接口开发在线调试系统：
+	http://www.fangbei.org/tool/message
+
+weixin-java-mp-demo-springboot：
+	https://github.com/binarywang/weixin-java-mp-demo-springboot
+weixin-java-tools：
+	https://github.com/Wechat-Group/weixin-java-tools
