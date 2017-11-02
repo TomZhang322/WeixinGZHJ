@@ -111,8 +111,13 @@ public class IndexController {
     }
 
     @RequestMapping("/register.do")
-    public ModelAndView listVote() {
+    public ModelAndView goRegister() {
         return new ModelAndView("register");
+    }
+
+    @RequestMapping("/login.do")
+    public ModelAndView goLogin() {
+        return new ModelAndView("login");
     }
 
 }

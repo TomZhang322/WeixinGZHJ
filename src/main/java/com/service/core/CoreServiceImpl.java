@@ -2,8 +2,10 @@ package com.service.core;
 
 import com.adcc.utility.log.Log;
 import com.model.message.resp.Article;
+import com.model.message.resp.BaseMessage;
 import com.model.message.resp.NewsMessage;
 import com.model.message.resp.TextMessage;
+import com.util.Constant;
 import com.util.MessageUtil;
 import org.springframework.stereotype.Service;
 
@@ -82,7 +84,7 @@ public class CoreServiceImpl implements CoreService {
                         case 1: {
                             StringBuffer buffer = new StringBuffer();
                             buffer.append("您好，我是小8，请回复数字选择服务：").append("\n\n");
-                            buffer.append("11 可查看测试单图文").append("\n");
+                            buffer.append("11  可查看测试单图文").append("\n");
                             buffer.append("12  可测试多图文发送").append("\n");
                             buffer.append("13  可测试网址").append("\n");
                             buffer.append("14  跳转到注册页面").append("\n");
@@ -239,6 +241,12 @@ public class CoreServiceImpl implements CoreService {
                 }
                 else if(eventType.equals(MessageUtil.EVENT_TYPE_VIEW)){
                     // 对于点击菜单转网页暂时不做推送
+                    String url = requestMap.get("EventKey");
+                    String openId = requestMap.get("FromUserName");
+                    if (openId.equals(Constant.WEXIN_OPENID_ZP)) {
+                        // 存在账号直接跳转到登录
+                        requestMap.put("EventKey", "http://weixinzp.ngrok.xiaomiqiu.cn/login.do");
+                    }
                 }
                 // 订阅
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {

@@ -8,9 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.model.message.resp.Article;
-import com.model.message.resp.NewsMessage;
-import com.model.message.resp.TextMessage;
+import com.model.message.resp.*;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -146,7 +144,6 @@ public class MessageUtil {
         return xstream.toXML(textMessage);
     }
 
-
     /**
      * 图文消息对象转换成xml
      *
@@ -157,6 +154,17 @@ public class MessageUtil {
         xstream.alias("xml", newsMessage.getClass());
         xstream.alias("item", new Article().getClass());
         return xstream.toXML(newsMessage);
+    }
+
+    /**
+     * 音乐消息对象转换成xml
+     *
+     * @param musicMessage
+     * @return
+     */
+    public  String musicMessageToXml(MusicMessage musicMessage) {
+        xstream.alias("xml", musicMessage.getClass());
+        return xstream.toXML(musicMessage);
     }
 
     /**
