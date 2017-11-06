@@ -2,37 +2,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>注册界面</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/addUserPage.css}" />
 </head>
 <body>
     <form id="addPageForm">
         <table>
+            <input th:hidden="hidden" th:id="openId" th:value="${openId}" />
             <tbody>
             <tr>
-                <td>账号</td>
-                <td><input th:type="text" th:id="loginName" th:name="loginName" /></td>
+                <td>账号：</td>
+                <td><input th:type="text" th:id="name" th:name="name" /></td>
                 <td><font color="red">*</font></td>
             </tr>
             <tr>
-                <td>密码</td>
+                <td>请输入密码：</td>
                 <td><input th:type="password" th:id="password" th:name="password" /></td>
                 <td><font color="red">*</font></td>
             </tr>
             <tr>
-                <td>用户类型</td>
-                <td>
-                    <select th:id="roleType" th:name="roleType">
-                        <!--<option th:each="roleType,roleTypeStat:${roleTypeList}" th:value="${roleType.categoriesCode}" th:text="${roleType.categoriesValue}">-->
-
-                        <!--</option>-->
-                        <option value="1" th:selected="${roleType=='1'}">类型一</option>
-                        <option value="2" th:selected="${roleType=='2'}">类型二</option>
-                    </select>
-                </td>
-                <td><font color="red">*</font></td>
-            </tr>
-            <tr>
-                <td>电话</td>
-                <td><input th:type="text" th:id="phone" th:name="phone" /></td>
+                <td>请再次输入密码：</td>
+                <td><input th:type="password" th:id="repassword" th:name="repassword" /></td>
                 <td><font color="red">*</font></td>
             </tr>
             <tr>
@@ -44,12 +34,14 @@
     </form>
 </body>
 <script>
+
     function addUser() {
-        var loginName = $("#loginName").val();
+        var openId = $("#openId").val();
+
+        var name = $("#name").val();
         var password = $("#password").val();
-        var roleType = $("#roleType").val();
-        var phone = $("#phone").val();
-        if(loginName == "" || loginName == undefined){
+        var repassword = $("#repassword").val();
+        if(name == "" || name == undefined){
             alert("账号不能为空");
             return false;
         }
@@ -57,25 +49,49 @@
             alert("密码不能为空");
             return false;
         }
-        if(roleType == "" || roleType == undefined){
-            alert("用户类型不能为空");
+        if(repassword == "" || repassword == undefined){
+            alert("密码不能为空");
             return false;
         }
-        if(phone == "" || phone == undefined){
-            alert("电话不能为空");
+        if(password != repassword){
+            alert("两次密码输入不一致");
             return false;
         }
-        if(phone.length > 15){
-            alert("电话号码不能太长");
-            return false;
-        }
+        var userArray = {};
+        userArray["openId"] = openId;
+        userArray["name"] = name;
+        userArray["password"] = password;
+        userArray["repassword"] = repassword;
+        $.ajax({
+            url:"/addUser",
+            type:"post",
+            dataType:"json",
+            contentType: "application/json",
+            async: false,
+            data:JSON.stringify(userArray),
+            success:function callbackFun(data){
+                //解析json
+                alert(data.responseDesc);
+                if(data.responseCode == 200){
+                    setTimeout(function(){
+                        //window.close();
+//                        window.history.back();
+                        userArray = {};
+                        window.location.href ="/loginPage";
+                    },500);
+                }
+            },
+            error:function(data){
+                alert(data);
+            }
+        });
+
     }
 
     function cancelAddUser() {
-        $("#loginName").val("");
+        $("#name").val("");
         $("#password").val("");
-        $("#roleType").val(1);
-        $("#phone").val("");
+        $("#repassword").val("");
     }
 </script>
 </html>

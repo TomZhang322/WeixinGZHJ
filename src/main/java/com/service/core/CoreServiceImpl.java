@@ -87,7 +87,6 @@ public class CoreServiceImpl implements CoreService {
                             buffer.append("11  可查看测试单图文").append("\n");
                             buffer.append("12  可测试多图文发送").append("\n");
                             buffer.append("13  可测试网址").append("\n");
-                            buffer.append("14  跳转到注册页面").append("\n");
 
                             buffer.append("或者您可以尝试发送表情").append("\n\n");
                             buffer.append("回复“1”显示此帮助菜单").append("\n");
@@ -143,16 +142,8 @@ public class CoreServiceImpl implements CoreService {
                         case 13: {
                             //测试网址回复
 //                            respContent = "<a href=\"http://www.baidu.com\">百度主页</a>";
-                            respContent = "<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/vote.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect\">用户信息</a>";
-                            textMessage.setContent(respContent);
-                            // 将文本消息对象转换成xml字符串
-                            respMessage = MessageUtil.textMessageToXml(textMessage);
-                            break;
-                        }
-
-                        case 14: {
-                            //测试注册页面回复
-                            respContent = "<a href=\"http://weixinzp.ngrok.xiaomiqiu.cn/register.do\">注册页面</a>";
+//                            respContent = "<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect\">用户信息</a>";
+                            respContent = "<a href=\"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://18777q5t37.51mypc.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect\">用户信息</a>";
                             textMessage.setContent(respContent);
                             // 将文本消息对象转换成xml字符串
                             respMessage = MessageUtil.textMessageToXml(textMessage);
@@ -217,24 +208,6 @@ public class CoreServiceImpl implements CoreService {
                         Log.error("开发者反馈：EventKey值没找到，它是:"+EventKey);
                         respContent= "很抱歉，此按键功能正在升级无法使用";
                     }
-//                    switch (EventKey){
-//                        case "11":{
-//                            respContent = "这是第一栏第一个";
-//                            break;
-//                        }
-//                        case "12":{
-//                            respContent = "这是第一栏第一个";
-//                            break;
-//                        }
-//                        case "21":{
-//                            respContent = "这是第二栏第一个";
-//                            break;
-//                        }
-//                        default:{
-//                            log.error("开发者反馈：EventKey值没找到，它是:"+EventKey);
-//                            respContent= "很抱歉，此按键功能正在升级无法使用";
-//                        }
-//                    }
                     textMessage.setContent(respContent);
                     // 将文本消息对象转换成xml字符串
                     respMessage = MessageUtil.textMessageToXml(textMessage);

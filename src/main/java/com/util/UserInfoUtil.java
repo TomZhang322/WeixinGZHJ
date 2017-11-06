@@ -27,7 +27,8 @@ public class UserInfoUtil {
     }
 
     public static void main(String[] args) {
-        String  REDIRECT_URI = "http://weixinzp.ngrok.xiaomiqiu.cn/vote.do";
+//        String  REDIRECT_URI = "http://weixinzp.ngrok.xiaomiqiu.cn/userInfo.do";
+        String  REDIRECT_URI = "http://18777q5t37.51mypc.cn/vote.do";
         /**
          * 当scope=snsapi_userinfo的时候，弹出询问授权页面，用户同意，才可进一步获取用户基本信息
          * 当scope=snsapi_base的时候,不会出现询问页面，但只能获取用户openid(用户的唯一标识)
@@ -39,6 +40,13 @@ public class UserInfoUtil {
         String getCodeUrl = getCode(appId, REDIRECT_URI, SCOPE);
         System.out.println("getCodeUrl:"+getCodeUrl);
         // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://119.29.110.51:80/url&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+
         // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/vote.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+        // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+
+        // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://18777q5t37.51mypc.cn/vote.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+        // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://18777q5t37.51mypc.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect
+
+
     }
 }

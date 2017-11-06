@@ -6,34 +6,22 @@ package com.model.dbuser;
 public class DBUser {
 
     // id
-    private int id;
+    private long id;
+
+    // 名字
+    private String name;
 
     // 用户的标识
     private String openId;
 
-    // 用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间
-    private String subscribeTime;
+    // 用户密码
+    private String password;
 
-    // 昵称
-    private String nickname;
-
-    // 用户的性别（1是男性，2是女性，0是未知）
-    private int sex;
-
-    // 用户所在国家
-    private String country;
-
-    // 用户所在省份
-    private String province;
-
-    // 用户所在城市
-    private String city;
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,65 +33,29 @@ public class DBUser {
         this.openId = openId;
     }
 
-    public String getSubscribeTime() {
-        return subscribeTime;
+    public String getName() {
+        return name;
     }
 
-    public void setSubscribeTime(String subscribeTime) {
-        this.subscribeTime = subscribeTime;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "DBUser{" +
                 "id=" + id +
-                ", openId=" + openId +
-                ", subscribeTime='" + subscribeTime + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", country='" + country + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
+                ", name=" + name +
+                ", openId='" + openId + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
