@@ -6,6 +6,7 @@
         <result column="NAME" property="name"/>
         <result column="OPENID" property="openId"/>
         <result column="PASSWORD" property="password"/>
+        <result column="ROLEID" property="roleId"/>
     </resultMap>
 
     <select id="findByOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -27,8 +28,8 @@
         <selectKey resultType="Long" order="BEFORE" keyProperty="id">
             SELECT SEQ_WEIXIN_DBUSER_ID.NEXTVAL as id FROM DUAL
         </selectKey>
-        INSERT INTO WEIXIN_DBUSER(ID,OPENID,NAME,PASSWORD)
-        VALUES (#{id}, #{openId}, #{name}, #{password})
+        INSERT INTO WEIXIN_DBUSER(ID,OPENID,NAME,PASSWORD,ROLEID)
+        VALUES (#{id}, #{openId}, #{name}, #{password}, #{roleId})
     </insert>
 
     <update id="updateDBUser" parameterType="com.model.dbuser.DBUser">

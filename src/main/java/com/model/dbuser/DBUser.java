@@ -17,6 +17,9 @@ public class DBUser {
     // 用户密码
     private String password;
 
+    // 角色(0:普通人员 1：管理人员)
+    private String roleId;
+
     public long getId() {
         return id;
     }
@@ -49,6 +52,14 @@ public class DBUser {
         this.password = password;
     }
 
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
     @Override
     public String toString() {
         return "DBUser{" +
@@ -56,6 +67,7 @@ public class DBUser {
                 ", name=" + name +
                 ", openId='" + openId + '\'' +
                 ", password='" + password + '\'' +
+                ", roleId='" + roleId + '\'' +
                 '}';
     }
 }

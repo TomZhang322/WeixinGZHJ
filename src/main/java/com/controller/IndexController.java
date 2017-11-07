@@ -220,6 +220,7 @@ public class IndexController {
                 return loginResponse;
             }
             loginResponse.setResponseDesc("登陆成功");
+            loginResponse.setUserId(Integer.parseInt(dbUser.getRoleId()));
         } catch (Exception e) {
             Log.error("login error", e);
             loginResponse.setResponseCode(ResponseCode.SERVER_ERROR);
@@ -259,6 +260,7 @@ public class IndexController {
                 dbUser.setOpenId(openId);
                 dbUser.setName(name);
                 dbUser.setPassword(password);
+                dbUser.setRoleId("0");// 默认0 普通人员
                 dbUserService.createDBUser(dbUser);
                 baseResponse.setResponseDesc("新增用户成功");
             }
@@ -272,6 +274,16 @@ public class IndexController {
 
     @RequestMapping(value = "/resetPwdPage")
     public void resetPwdPage(){
+
+    }
+
+    @RequestMapping(value = "/mainAdminPage")
+    public void getMainAdminPage(){
+
+    }
+
+    @RequestMapping(value = "/mainPuTongPage")
+    public void getMainPuTongPage(){
 
     }
 

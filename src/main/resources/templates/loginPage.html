@@ -61,7 +61,12 @@
                 alert(data.responseDesc);
                 if(data.responseCode == 200){
                     userArray = {};
-                    window.location.href ="/mainPage";
+//                    window.location.href ="/mainPage";
+                    if(data.userId == 1) {
+                        window.location.href ="/mainAdminPage";
+                    } else {
+                        window.location.href ="/mainPuTongPage";
+                    }
                 }
             },
             error:function(data){
