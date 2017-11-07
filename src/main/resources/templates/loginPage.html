@@ -5,24 +5,25 @@
     <script type="text/javascript" th:src="@{/js/jquery-3.2.1.js}"></script>
     <script type="text/javascript" th:src="@{/js/jquery.form.js}"></script>
     <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/loginPage.css}" />
+    <link rel="stylesheet" type="text/css" media="screen" th:href="@{/css/common.css}" />
 </head>
 <body>
 <form id="loginPageForm">
-    <table>
+    <table class="tableFixe">
         <tbody>
         <tr>
             <td>账号</td>
-            <td><input th:type="text" th:id="name" th:name="name" /></td>
+            <td><input class="tableFixe" th:type="text" th:id="name" th:name="name" /></td>
             <td><font color="red">*</font></td>
         </tr>
         <tr>
             <td>密码</td>
-            <td><input th:type="password" th:id="password" th:name="password" /></td>
+            <td><input class="tableFixe" th:type="password" th:id="password" th:name="password" /></td>
             <td><font color="red">*</font></td>
         </tr>
         <tr>
-            <td><input th:type="button" onclick="login()" th:value="确定" /></td>
-            <td><input th:type="button" onclick="cancelLogin()" th:value="取消" /></td>
+            <td><input class="tableFixe" th:type="button" onclick="login()" th:value="确定" /></td>
+            <td><input class="tableFixe" th:type="button" onclick="cancelLogin()" th:value="取消" /></td>
         </tr>
         <tr>
             <td><a href="/resetPwdPage" th:target="_self">重置密码</a></td>
