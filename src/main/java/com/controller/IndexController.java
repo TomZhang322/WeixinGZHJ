@@ -190,6 +190,14 @@ public class IndexController {
         return new ModelAndView("loginPage");
     }
 
+    @RequestMapping(value = "/mainPage")
+    public void mainPage(){
+    }
+
+    @RequestMapping(value = "/loginPage",method = RequestMethod.GET)
+    public void loginPage(){
+    }
+
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public LoginResponse login(@RequestBody UserDTO userDTO){
@@ -218,6 +226,10 @@ public class IndexController {
             loginResponse.setResponseDesc("服务器错误");
         }
         return loginResponse;
+    }
+
+    @RequestMapping(value = "/register",method = RequestMethod.GET)
+    public void addUserPage(){
     }
 
     @ResponseBody
@@ -256,6 +268,11 @@ public class IndexController {
             baseResponse.setResponseDesc("服务器错误");
         }
         return baseResponse;
+    }
+
+    @RequestMapping(value = "/resetPwdPage")
+    public void resetPwdPage(){
+
     }
 
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/wechat/portal")
 public class CoreController {
     @Autowired
     private CoreService coreService;
