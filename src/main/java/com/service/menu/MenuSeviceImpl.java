@@ -1,6 +1,7 @@
 package com.service.menu;
 
 import com.adcc.utility.log.Log;
+import com.model.menu.Menu;
 import com.util.WeixinUtil;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -46,7 +47,7 @@ public class MenuSeviceImpl implements MenuService {
      * @param accessToken 有效的access_token
      * @return 0表示成功，其他值表示失败
      */
-    public int createMenu(Map<String, Object> menu,String accessToken) {
+    public int createMenu(Menu menu, String accessToken) {
         int result = 0;
 
         // 拼装创建菜单的url

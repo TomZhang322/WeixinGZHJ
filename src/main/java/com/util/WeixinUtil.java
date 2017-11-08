@@ -2,6 +2,10 @@ package com.util;
 
 import com.adcc.utility.log.Log;
 import com.model.accesstoken.AccessToken;
+import com.model.menu.Button;
+import com.model.menu.ClickButton;
+import com.model.menu.Menu;
+import com.model.menu.ViewButton;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import java.io.BufferedReader;
@@ -88,6 +92,9 @@ public class WeixinUtil {
     // 获取access_token的接口地址（GET） 限200（次/天）
     public final static String access_token_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
+    // 菜单创建（POST） 限1000（次/天）
+    public static String menu_create_url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+
     /**
      * 获取access_token
      *
@@ -113,6 +120,110 @@ public class WeixinUtil {
             }
         }
         return accessToken;
+    }
+
+    /**
+     * 组装菜单
+     * @return
+     */
+    public static Menu initMenu(){
+        Menu menu = new Menu();
+        ClickButton button11 = new ClickButton();
+        button11.setName("监控项一");
+        button11.setType("click");
+        button11.setKey("11");
+
+        ClickButton button12 = new ClickButton();
+        button12.setName("监控项二");
+        button12.setType("click");
+        button12.setKey("12");
+
+        ClickButton button13 = new ClickButton();
+        button13.setName("监控项三");
+        button13.setType("click");
+        button13.setKey("13");
+
+        ClickButton button14 = new ClickButton();
+        button14.setName("监控项四");
+        button14.setType("click");
+        button14.setKey("14");
+
+        ClickButton button21 = new ClickButton();
+        button21.setName("指南一");
+        button21.setType("click");
+        button21.setKey("21");
+
+        ClickButton button22 = new ClickButton();
+        button22.setName("指南二");
+        button22.setType("click");
+        button22.setKey("22");
+
+        ClickButton button23 = new ClickButton();
+        button23.setName("指南三");
+        button23.setType("click");
+        button23.setKey("23");
+
+        ClickButton button24 = new ClickButton();
+        button24.setName("指南四");
+        button24.setType("click");
+        button24.setKey("24");
+
+        ClickButton button25 = new ClickButton();
+        button25.setName("指南五");
+        button25.setType("click");
+        button25.setKey("25");
+
+        ViewButton button31 = new ViewButton();
+        button31.setName("登录");
+        button31.setType("view");
+        button31.setUrl("http://weixinzp.ngrok.xiaomiqiu.cn/loginPage");
+
+        ViewButton button32 = new ViewButton();
+        button32.setName("APP下载");
+        button32.setType("view");
+        button32.setUrl("http://www.baidu.com");
+
+        ViewButton button33 = new ViewButton();
+        button33.setName("用户信息");
+        button33.setType("view");
+        button33.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect");
+
+        Button button1 = new Button();
+        button1.setName("网关监控");
+        button1.setSub_button(new Button[]{button11,button12,button13,button14});
+
+        Button button2 = new Button();
+        button2.setName("办理指南");
+        button2.setSub_button(new Button[]{button21,button22,button23,button24,button25});
+
+        Button button3 = new Button();
+        button3.setName("个人中心");
+        button3.setSub_button(new Button[]{button31,button32,button33});
+
+        menu.setButton(new Button[]{button1,button2,button3});
+        return menu;
+    }
+
+    public static int createMenu(Menu menu, String accessToken){
+        int result = 0;
+        try {
+            // 拼装创建菜单的url
+            String url = menu_create_url.replace("ACCESS_TOKEN", accessToken);
+            // 将菜单对象转换成json字符串
+            String jsonMenu = JSONObject.fromObject(menu).toString();
+            // 调用接口创建菜单
+            JSONObject jsonObject = WeixinUtil.httpRequest(url, "POST", jsonMenu);
+            if (null != jsonObject) {
+                if (0 != jsonObject.getInt("errcode")) {
+                    result = jsonObject.getInt("errcode");
+                    Log.error("创建菜单失败 errcode:{} errmsg:{}"+ jsonObject.getInt("errcode")+ jsonObject.getString("errmsg"));
+                    Log.error("****"+jsonMenu+"****");
+                }
+            }
+        } catch (Exception e) {
+            Log.error("createMenu method error", e);
+        }
+        return result;
     }
 
 }
