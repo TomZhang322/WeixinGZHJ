@@ -188,6 +188,16 @@ public class WeixinUtil {
         button33.setType("view");
         button33.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx83dad0407e617c02&redirect_uri=http://weixinzp.ngrok.xiaomiqiu.cn/userInfo.do&response_type=code&scope=snsapi_userinfo&state=STAT#wechat_redirect");
 
+        ClickButton button34 = new ClickButton();
+        button34.setName("扫码事件");
+        button34.setType("scancode_push");
+        button34.setKey("34");
+
+        ClickButton button35 = new ClickButton();
+        button35.setName("地理位置");
+        button35.setType("location_select");
+        button35.setKey("35");
+
         Button button1 = new Button();
         button1.setName("网关监控");
         button1.setSub_button(new Button[]{button11,button12,button13,button14});
@@ -198,7 +208,7 @@ public class WeixinUtil {
 
         Button button3 = new Button();
         button3.setName("个人中心");
-        button3.setSub_button(new Button[]{button31,button32,button33});
+        button3.setSub_button(new Button[]{button31,button32,button33,button34,button35});
 
         menu.setButton(new Button[]{button1,button2,button3});
         return menu;

@@ -78,7 +78,7 @@ public class MessageUtil {
     /**
      * 事件类型：已关注群体扫描二维码
      */
-    public static final String EVENT_TYPE_SCAN="SCAN";
+    public static final String EVENT_TYPE_SCAN="scancode_push";
     /**
      * 事件类型：unsubscribe(取消订阅)
      */
